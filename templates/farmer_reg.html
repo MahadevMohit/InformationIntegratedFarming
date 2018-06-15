@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>PBL</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+	<script type="text/javascript" src="static/js/openmap.js"></script>
+<!--===============================================================================================-->
+<!--==========================OPEN MAP LIB ========================================================-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+<meta charset="utf-8"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="contact100-map" id="google_map"  data-pin="static/images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+
+
+		
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="{{ url_for("farmer_registration")}}" method="POST">
+				<span class="contact100-form-title">
+					FARMER REGISTRATION
+				</span>
+
+				<span class="mylabel-input100">Personal Details :</span><br>
+				<br>
+				<div class="wrap-input100 validate-input" data-validate="Enter Valid Survey">
+					<span class="label-input100">Survey No.</span>
+					<input class="input100" type="text" name="survey_no" placeholder="Survey Number...">
+					<span class="focus-input100"></span>			
+				</div>
+
+				<div class="wrap-input100" >
+					<span class="label-input100">Name</span>
+					<input class="input100" type="text" name="name" placeholder="Name...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100" >
+					<span class="label-input100">Age</span>
+					<input class="input100" type="number" min="18" name="age" placeholder="Age min: 18 years">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<span class="label-input100">Phone</span>
+					<input class="input100" type="number" name="phone" placeholder="Phone Number...">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<span class="mylabel-input100"><br>Agriculture Details :</span><br>
+
+				<div class="wrap-input100" >
+					<span class="label-input100">Soil Type</span>
+					<input class="input100" type="text"  name="soil_type" placeholder="Soil Type">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" >
+					<span class="label-input100">Irrigation Type</span>
+					<input class="input100" type="text"  name="irrigation_type" placeholder="Irrigation Type">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" >
+					<span class="label-input100">Crop Growing</span>
+					<input class="input100" type="text"  name="current_crop" placeholder="Present Crop">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" >
+					<span class="label-input100">Previous Crops</span>
+					<input class="input100" type="text"  name="prev_crop" placeholder="Enter the crop with comma seperated">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" >
+					<span class="label-input100">No. Cattles</span>
+					<input class="input100" type="number" min="0" name="cattle" placeholder="Number of cattle">
+					<span class="focus-input100"></span>
+				</div>
+				<span class="label-input100"><br></span>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" type="submit">
+							SUBMIT
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="static/js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
